@@ -1,10 +1,22 @@
+html {background-color:red;
+}
+
 h1 {
 	font-size: 100px;
+	font-family: helvetica;
 	color: red; 
 	background-color:pink;
 	margin: 20px;
 	padding: 20px;
 }
+a{font-family: Helvetica;
+	color: pink;
+
+
+}
+#first:hover {color:blue;}
+#second:hover {color:red;}
+#third:hover {color:green;}
 p {
 	color:red;
 }
