@@ -1,22 +1,52 @@
-html {background-color:red;
-}
+
+
 
 h1 {
 	font-size: 100px;
-	font-family: helvetica;
-	color: red; 
-	background-color:pink;
-	margin: 20px;
-	padding: 20px;
-}
-a{font-family: Helvetica;
-	color: pink;
-
+	font-family: futura - 300;
+	color: #262626; 
+	background-color:;
+	margin: 1%;
+	padding: 1%;
 
 }
-#first:hover {color:blue;}
-#second:hover {color:red;}
-#third:hover {color:green;}
-p {
-	color:red;
+
+p {font-family: futura, Arial
+position: fixed;}
+
+
+img {display: inline;
+
 }
+
+
+a{font-family: Futura, Arial;
+	color:#262626;
+	font-size: 13px;
+
+}
+#first:hover {color:pink;} 
+#second:hover {color:pink;}
+#third:hover {color:pink;}
+p { font-family: futura, Arial;
+	color:#262626
+
+}
+
+
+nav{
+text-align: right; 
+margin-right: 2%;
+margin-top: 1%;
+size: 19px;
+}
+
+nav a {
+	padding:1%;
+}
+
+.bali {
+	margin:5%;
+	padding:5%;
+}
+
