@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reasons for Nightmares</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+<nav>
+<div class="dropdown">
+	<button class="dropbtn">Menu</button>
+	<div class="dropdown-content">
+		<a id="first" href="page3.html">CATCHER</a>
+		<a id= "second" href="page5.html">DREAMS</a>
+		<a id="third" href="index.html">HOME</a>
+		</nav>
+	</div>
+
+<center>
+	<h1>TONIGHT YOU WILL DREAM ABOUT....</h1>
+	<p id="insert1"></p>
+	
+	<p id="insert2"></p>
+	</center>
+
+    <script>
+            var persons = ['LOOSING YOUR TEETH', 'FALLING OF A CLIFF', 'BEEING PREGNANT', 'BEEING CHASED', 'MEETING HARRY POTTER', 'BEEING NUDE', 'BEING UNABLE TO FIND A TOILET', 'ARRIVING TO LATE', 'FAILING AN EXAM', 'RIDING A UNICORN', 'FINDING MONEY', 'FLYING', 'EATING DELICIOUS FOOD']
+            var randomValue = persons[Math.floor(Math.random() * persons.length)];
+            document.getElementById("insert1").innerHTML = randomValue;
+            var aktivitet = ['playing video games', 'talking to your mother', 'building Lego', 'taking a nap', 'arriving to a party', 'painting', 'coding', 'texting your ex', 'feeling drunk', 'screaming',]
+            var random = aktivitet[Math.floor(Math.random() * aktivitet.length)];
+            document.getElementById("insert2").innerHTML = 'While ' + random;
+    </script>
+
+<form action="page5.html">
+<input type="submit" id="next" value="I don't like that dream">
+</form>
+
+</center>
+
+	
+</body>
+</html>

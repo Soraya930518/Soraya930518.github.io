@@ -15,5 +15,12 @@ else {
  	}
 
  }
- printApples(10); 
-document.getElementById("pop").innerHTML = ""; 
+
+
+document.getElementById("Dreams").onclick = function() {myFunction()};
+
+function myFunction() {
+    document.getElementById("Dreams").innerHTML = "SAVED IN SPACE";
+}
+
+

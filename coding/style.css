@@ -1,18 +1,23 @@
-
+body {
+	background-image: url('olofgrind.gif');
+	background-size:100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	height:100%;
+	width:100%;
+}
 
 
 h1 {
-	font-size: 100px;
-	font-family: futura - 300;
+	font-size: 60px;
+	font-family: futura, Arial;
 	color: #262626; 
-	background-color:;
 	margin: 1%;
 	padding: 1%;
 
 }
 
-p {font-family: futura, Arial
-position: fixed;}
+
 
 
 img {display: inline;
@@ -21,32 +26,163 @@ img {display: inline;
 
 
 a{font-family: Futura, Arial;
-	color:#262626;
+	color:#000000;
 	font-size: 13px;
+	text-decoration: none;
 
 }
-#first:hover {color:pink;} 
-#second:hover {color:pink;}
-#third:hover {color:pink;}
+#first:hover {color:transparent;} 
+#second:hover {color:transparent;}
+#third:hover {color:transparent;}
+
+
 p { font-family: futura, Arial;
-	color:#262626
+	color:#000000;
+	font-size: 25px;
 
 }
 
 
 nav{
 text-align: right; 
-margin-right: 2%;
+margin-right: 3%;
 margin-top: 1%;
-size: 19px;
+size: 20px;
 }
 
 nav a {
-	padding:1%;
+	padding: 1%;
+	margin-left: 1%;
+	margin-right: 100%;
+	font-size: 16px;
+	position: relative;
+	line-height: 35px;
+
+
+
 }
 
 .bali {
 	margin:5%;
 	padding:5%;
 }
+
+
+.dropbtn
+{
+	background-color: transparent;
+	color: #000000;
+	font-family: futura, Arial;
+	padding:  5px;
+	font-size: 25px;
+	border: none;
+	cursor: pointer;
+
+
+
+}
+
+.dropdown {
+	position: relative;
+	display: inline-block;
+
+
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: transparent;
+	min-width: 1%;
+	box-shadow: 0px 8px 16px 0px rgba (0,0,0,0);
+	z-index: 1;
+}
+
+.dropdown.content a {
+color: #000000;
+padding: 10%;
+text-decoration: none;
+display: table-column;
+shape-margin: 10%;
+
+
+}
+
+.dropdown-contet a:hover {
+	background-color: transparent;
+	
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown:hover .dropdownbtn {
+	background-color: transparent;
+}
+
+form {
+	padding-top: 15%;
+	display: inline;
+
+
+}
+
+textarea {
+	background-color: transparent;
+	font-family: futura, Arial;
+	font-size: 16px;
+	color:white;
+	border-color: black;
+
+}
+
+#nightmare, #good {
+	background-color: transparent;
+	color:#000000;
+	font-family: futura, Arial;
+	font-size: 30px;
+	position: relative;
+	margin:30px;
+	padding:10px;
+	width: 35%;
+	border-color:black;
+}
+
+#next {
+	color:black;
+	font-size: 16px;
+	background-color: transparent;
+	position:relative;
+	margin: 50px;
+	margin-left: 43%;
+	font-family: futura, Arial;
+	border-color: black;
+
+}
+
+#next2 {
+	color:#000000;
+	font-size: 16px;
+	background-color: transparent;
+	position:relative;
+	font-family: futura, Arial;
+	border-color: black;
+
+}
+
+button {
+	background-color: transparent;
+	font-family: futura;
+	font-size: 15px;
+	color:white;
+	border-color: black;
+
+}
+h2 {
+	font-family: futura, Arial;
+	font-size: 55px;
+	margin-bottom: 1%;
+}
+
 
