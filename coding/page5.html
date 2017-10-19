@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Reasons for Nightmares</title>
+	<title>Tonight</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -15,21 +15,21 @@
 		<a id="third" href="index.html">HOME</a>
 		</nav>
 	</div>
-
+<br>
+<br>
 <center>
 	<h1>TONIGHT YOU WILL DREAM ABOUT....</h1>
 	<p id="insert1"></p>
-	
 	<p id="insert2"></p>
 	</center>
 
     <script>
-            var persons = ['LOOSING YOUR TEETH', 'FALLING OF A CLIFF', 'BEEING PREGNANT', 'BEEING CHASED', 'MEETING HARRY POTTER', 'BEEING NUDE', 'BEING UNABLE TO FIND A TOILET', 'ARRIVING TO LATE', 'FAILING AN EXAM', 'RIDING A UNICORN', 'FINDING MONEY', 'FLYING', 'EATING DELICIOUS FOOD']
+            var persons = ['LOOSING YOUR TEETH', 'FALLING OF A CLIFF', 'BEEING PREGNANT', 'BEEING CHASED', 'MEETING HARRY POTTER', 'BEING NUDE', 'BEING UNABLE TO FIND A TOILET', 'ARRIVING TO LATE', 'FAILING AN EXAM', 'RIDING A UNICORN', 'FINDING MONEY', 'FLYING', 'EATING DELICIOUS FOOD']
             var randomValue = persons[Math.floor(Math.random() * persons.length)];
             document.getElementById("insert1").innerHTML = randomValue;
-            var aktivitet = ['playing video games', 'talking to your mother', 'building Lego', 'taking a nap', 'arriving to a party', 'painting', 'coding', 'texting your ex', 'feeling drunk', 'screaming',]
+            var aktivitet = ['playing video games', 'talking to your mother', 'building Lego', 'taking a nap', 'arriving to a party', 'painting', 'coding', 'texting your ex', 'feeling drunk', 'screaming','killing monsters', 'swimming', 'knitting']
             var random = aktivitet[Math.floor(Math.random() * aktivitet.length)];
-            document.getElementById("insert2").innerHTML = 'While ' + random;
+            document.getElementById("insert2").innerHTML = 'while ' + random;
     </script>
 
 <form action="page5.html">
