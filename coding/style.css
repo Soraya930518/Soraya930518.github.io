@@ -2,9 +2,13 @@ body {
 	background-image: url('olofgrind.gif');
 	background-size:100%;
 	background-repeat: no-repeat;
-	background-attachment: relative;
+	background-attachment: fixed;
 	height:100%;
 	width:100%;
+}
+
+#body3 {
+	background-image: url(jennifer.3.jpg);
 }
 
 
@@ -38,7 +42,7 @@ a{font-family: Futura, Arial;
 
 p { font-family: futura, Arial;
 	color:000000;
-	font-size: 36px;
+	font-size: 30px;
 
 }
 
@@ -62,11 +66,7 @@ nav a {
 	font-size: 16px;
 	position: relative;
 	line-height: 35px;
-
-
-
 }
-
 
 .dropbtn
 {
@@ -77,16 +77,11 @@ nav a {
 	font-size: 25px;
 	border: none;
 	cursor: pointer;
-
-
-
 }
 
 .dropdown {
 	position: relative;
 	display: inline-block;
-
-
 }
 
 .dropdown-content {
@@ -104,14 +99,11 @@ padding: 10%;
 text-decoration: none;
 display: table-column;
 shape-margin: 10%;
-
-
 }
 
 .dropdown-contet a:hover {
 	background-color: transparent;
-	
-}
+	}
 
 .dropdown:hover .dropdown-content {
 	display: block;
@@ -124,17 +116,14 @@ shape-margin: 10%;
 form {
 	padding-top: 15%;
 	display: inline;
-
-
 }
 
 textarea {
 	background-color: transparent;
 	font-family: futura, Arial;
 	font-size: 18px;
-	color:white;
+	color:black;
 	border-color: black;
-
 
 }
 
@@ -155,10 +144,10 @@ textarea {
 	color:black;
 	font-size: 16px;
 	background-color: transparent;
-	position:relative;
 	margin: 50px;
-	margin-left: 44%;
+	margin-left: 43%;
 	margin-top: 17%;
+	padding: 1%;
 	font-family: futura;
 	border-color: black;
 
@@ -177,7 +166,7 @@ textarea {
 button {
 	background-color: transparent;
 	font-family: futura;
-	font-size: 15px;
+	font-size: 20px;
 	color:black;
 	border-color: black;
 
@@ -188,7 +177,10 @@ h2 {
 	margin-bottom: 1%;
 }
 
-audio {
-	color:transparent;
-}
+
+
+#map {
+        height: 400px;
+        width: 100%;
+       }
 
