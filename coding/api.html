@@ -9,7 +9,8 @@
 		var url = 'http://api.openweathermap.org/data/2.5/forecast?q=stockholm,SE&appid=' + key; 
 		fetch(url)
 		.then(function(response) {return response.json()})
-		.then(function(response) {console.log(response.city.name) })
+		.then(function(response) {console.log(response) ;
+			for (var i = 0; i < response.list.length; i++)
 
 
 	</script>
