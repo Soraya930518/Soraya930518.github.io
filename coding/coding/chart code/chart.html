@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>chart</title>
+
+  <style>
+    * {box-sizing:border-box;margin:0};
+
+$app--width: 720px;
+$app--height: 600px;
+$app--bgc: #fcfcfc;
+$app--border-radius: 10px;
+$app--item-height: 50px;
+
+body {
+  display: flex;
+  flex-flow: column no-wrap;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(45deg, #ee0979, #ff6a00);
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: "Open Sans", sans-serif
+}
+
+input[type=range].slider {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 9px 0;
+}
+input[type=range].slider:focus {
+  outline: none;
+}
+input[type=range].slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: rgba(29, 25, 28, 0.32);
+  border-radius: 1px;
+  border: 0px solid #ffffff;
+}
+input[type=range].slider::-webkit-slider-thumb {
+  box-shadow: 0px 0px 4px #2c0000, 0px 0px 0px #460000;
+  border: 7.2px solid rgba(255, 255, 255, 0.31);
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -9px;
+}
+input[type=range].slider:focus::-webkit-slider-runnable-track {
+  background: rgba(87, 75, 84, 0.32);
+}
+input[type=range].slider::-moz-range-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  background: rgba(29, 25, 28, 0.32);
+  border-radius: 1px;
+  border: 0px solid #ffffff;
+}
+input[type=range].slider::-moz-range-thumb {
+  box-shadow: 0px 0px 4px #2c0000, 0px 0px 0px #460000;
+  border: 7.2px solid rgba(255, 255, 255, 0.31);
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+}
+input[type=range].slider::-ms-track {
+  width: 100%;
+  height: 2px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range].slider::-ms-fill-lower {
+  background: rgba(0, 0, 0, 0.32);
+  border: 0px solid #ffffff;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range].slider::-ms-fill-upper {
+  background: rgba(29, 25, 28, 0.32);
+  border: 0px solid #ffffff;
+  border-radius: 2px;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+}
+input[type=range].slider::-ms-thumb {
+  box-shadow: 0px 0px 4px #2c0000, 0px 0px 0px #460000;
+  border: 7.2px solid rgba(255, 255, 255, 0.31);
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+  height: 2px;
+}
+input[type=range].slider:focus::-ms-fill-lower {
+  background: rgba(29, 25, 28, 0.32);
+}
+input[type=range].slider:focus::-ms-fill-upper {
+  background: rgba(87, 75, 84, 0.32);
+}
+
+.app-- {
+  &container {
+    display: block;
+    position: relative;
+    background-color: $app--bgc;
+    border-radius: $app--border-radius;
+    overflow: hidden;
+    box-shadow: 0px 20px 50px rgba(0,0,0,.5);
+    > div {
+      float: left;
+    }
+  }
+  &title {
+    padding: 16px;
+    font-size: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+  }
+  &values--wrapper {
+    width: #{100% / 5 * 2};
+    height: #{100% / 8 * 5};
+    border-right: 2px solid rgba(0,0,0,.2);
+    overflow-y: auto;
+    .values--description {
+      width: 80%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-left: 20%;
+      color: rgba(0,0,0,0.7);
+      > div {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-size: 16px;
+      }
+      &-name {
+        width: 70%;
+        text-align: right;
+        padding-right: 10px;
+        border-right: 1px solid rgba(0,0,0,.2)
+      }
+      &-value {
+        width: 30%;
+        text-align: left;
+        padding-left: 10px;
+      }
+    }
+    .values--list {
+      width: 100%;
+      position: relative;
+      display: block;
+      .values--value-item {
+        display: block;
+        width: 100%;
+        height: $app--item-height;
+        position: relative;
+        background-color: #fff;
+        color: rgba(0,0,0,.8);
+        outline: 0;
+        border: {
+          bottom: 1px solid rgba(0,0,0,.2);
+        }
+        &:nth-child(1) {
+          border-top: 1px solid rgba(0,0,0,0.2);
+        }
+        > * {
+          float: right;
+          outline: 0;
+        }
+        &-name {
+          width: #{80%* .7};
+          padding-right: 10px;
+          text-align: right;
+          line-height: $app--item-height;
+          border-right: 1px solid rgba(0,0,0,0.2);
+          height: 100%;
+          overflow: hidden;
+        }
+        &-value {
+          width: #{80%* .3};
+          padding-left: 10px;
+          line-height: $app--item-height;
+        }
+        > button {
+          width: #{.5 * $app--item-height};
+          height: #{.5 * $app--item-height};
+          margin: #{.25 * $app--item-height};
+          border-radius: 50%;
+          line-height: 100%;
+          border: 0;
+          outline: 0;
+          //border: 1px solid rgba(0,0,0,.2);
+          background-color: transparent;
+          color: rgba(0,0,0,.5);
+          cursor: pointer;
+          transform: scale(1);
+          transition: transform 0.1s ease-out;
+          &:hover {
+            transform: scale(1.2);
+            transition: transform 0.1s ease-out;
+          }
+        }
+      }
+    }
+    .values--input {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: $app--item-height;
+      background-color: #fff;
+      >*{
+        border: 0;
+        outline: 0;
+        background-color: #fff;
+        padding: 0;
+      }
+      .values--input-{
+        &submit{
+          border: 1px solid rgba(0,0,0,.2);
+          border-radius: 50%;
+          transform: rotateZ(45deg);
+          color: rgba(0,0,0,0.6);
+          height: 30px;
+          width: 30px;
+        }
+        &name{
+          width: #{ .7 * 80%};
+          height: 100%;
+          padding-right: 10px;
+          text-align: right;
+        }
+        &value{
+          width: #{.3 * 80%};
+          padding-left: 10px;
+          height: 100%;
+        }
+      }
+    }
+  }
+  &canvas--wrapper {
+    width: #{100% / 5 * 3};
+    height: #{100% / 8 * 5};
+  }
+  &controls--wrapper {
+    width: #{100%};
+    height: #{100% / 8 * 3};
+    border-top: 2px solid rgba(0,0,0,.2);
+    position: relative;
+    .app--controls--{
+      &holder {
+        width: 100%;
+        height: calc(100% - 55px - 15px);
+        padding: 0px 100px;
+        position: relative;
+      }
+      &input {
+        height: 50%;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
+  </style>
+</head>
+<body>
+
+  <script>
+    const opts = {
+  width: 720,
+  height: 600,
+};
+const COLORS = ["f1c40f", "2ecc71", "3498db", "9b59b6", "34495e", "c0392b", "7f8c8d", "1abc9c"];
+const App = (()=>{
+  const model = {
+    inputs: {
+      name: m.stream(""),
+      value: m.stream("")
+    },
+    valueList: [{
+      name: "Isn't this cool",
+      value: 10, id: 0
+    }, {name: "Now there's titles", 
+      value: 3, id: 1},{ name: "I know right?", value: 6.7, id: 2}],
+    controls: {
+      radius: m.stream(100),
+      thickness: m.stream(10),
+      gap: m.stream(1),
+      listOffset: m.stream(10),
+    }
+  }
+  const ctrl = {
+    handle: {
+      input: {
+        name: (e)=>{
+          e.preventDefault();
+          model.inputs.name(e.target.value);
+        },
+        value: (e)=>{
+          e.preventDefault();
+          let val = e.target.value.replace(/[^0-9.]/g, "").replace(/(\.)\1/g, ".");
+          model.inputs.value(val);
+        },
+        submit: (e)=>{
+          e.preventDefault();
+          let id = model.valueList.length,
+              name = model.inputs.name(),
+              value = model.inputs.value();
+          name!=""&&value!=""?model.valueList.push({
+            name: name,
+            value: value,
+            id: id
+          }):void 0;
+          model.inputs.name("");
+          model.inputs.value("");
+        }
+      },
+      control: {
+        thickness: (e)=>{
+          model.controls.thickness(e.target.value);
+        },
+        radius: (e)=>{
+          console.log(e.target.value)
+          model.controls.radius(e.target.value);
+        }
+      }
+    },
+    removeValue: (val)=>{
+      model.valueList = model.valueList.filter((el)=>{
+        return el.id !== val.id;
+      })
+    }
+  }
+  function view(vnode){
+    let list = model.valueList.map((el, ind)=>{           
+      el.remove = ()=>{
+        ctrl.removeValue({id: el.id});
+      }
+      el.view = (vnode)=>{
+        return m("div.values--value-item", [
+          m("p.values--value-item-value", vnode.attrs.value),
+          m("p.values--value-item-name", vnode.attrs.name),
+          m("button", {onclick: el.remove}, String.fromCharCode(215))
+        ])
+      }
+      return m(el, {name: el.name, value: el.value,});
+    });
+    return m("div.app--container", {
+      style: "width: "+opts.width+"px; height: "+opts.height+"px"
+    }, [
+      m("div.app--values--wrapper", [
+        m("p.app--title", "Values"),
+        m("div.app--values--input-wrapper", [
+          m("div.values--description", [
+            m("div.values--description-name", "Name"),
+            m("div.values--description-value", "Value"),
+          ]),
+          m("div.values--list", list),
+          m("form.values--input", {
+            onsubmit: ctrl.handle.input.submit
+          },[
+            m("input.values--input-submit", {
+              type: "submit",
+              value: String.fromCharCode(215),
+            }),
+            m("input.values--input-name", {
+              oninput: ctrl.handle.input.name,
+              value: model.inputs.name(),
+              placeholder: "Name..."
+            }),
+            m("input.values--input-value", {
+              oninput: ctrl.handle.input.value,
+              value: model.inputs.value(),
+              placeholder: "Value.."
+            })
+          ])
+        ])
+      ]),
+      m("div.app--canvas--wrapper", [
+        m("p.app--title", "Result"),
+        m(Canvas, {width: 432, height: 320, list: model.valueList, controls: model.controls}),
+      ]),
+      m("div.app--controls--wrapper", [
+        m("p.app--title", "Controls"),
+        m("div.app--controls--holder", [
+          m("div.app--controls--input", [
+            m("label.app--controls--label", {for:"thickness-control"}, "Thickness"),
+            m("input.app--controls--thickness", {
+              id: "thickness-control",
+              className: "app--controls--thickness slider",
+              type: "range",
+              min: "1",
+              max: "30",
+              oninput: ctrl.handle.control.thickness,
+              value: model.controls.thickness()
+            }),
+          ]),
+          m("div.app--controls--input", [
+            m("label.app--controls--label", {for:"radius-control"}, "Radius"),
+            m("input.app--controls--radius", {
+              id: "radius-control",
+              className: "slider",
+              type: "range",
+              min: "10",
+              max: "100",
+              oninput: ctrl.handle.control.radius,
+              value: model.controls.radius()
+            })
+          ])
+        ]),
+      ]),
+    ]);
+  }
+  return {view: view}
+});
+const Canvas = (()=>{
+  const model = {
+    dom: null
+  }
+  const ctrl = {
+    render: (vnode)=>{
+      let $ = model.dom.getContext("2d"),
+          w = model.dom.width,
+          h = model.dom.height,
+          list = vnode.attrs.list,
+          pi = Math.PI,
+          pi2 = pi*2,
+          piDeg = Math.PI/180,
+          ctrls = vnode.attrs.controls;
+      
+      let total = list.reduce((s, val)=>{
+        val.value = +val.value;
+        return s+val.value;
+      },0),
+          totalListHeight = list.length*3*10,
+          middleTopOffset = h/2 - totalListHeight/2;
+      
+      $.fillStyle= "white";
+      $.fillRect(0,0,w,h);
+      for(let i = 0, val = 0; i < list.length; i++){
+        $.beginPath();
+        $.arc(+ctrls.radius()+ctrls.thickness()*2, h/2, +ctrls.radius(), (val/total)*pi2 + piDeg*ctrls.gap(), (val+=list[i].value)/total*pi2 - piDeg*ctrls.gap());
+        $.strokeStyle= "#"+COLORS[i];
+        $.lineWidth = ctrls.thickness();
+        $.stroke();
+        
+        $.fillStyle = "#"+COLORS[i];
+        $.save();
+        $.translate(ctrls.radius()*2+ctrls.thickness()*3 + ctrls.listOffset(), middleTopOffset + 10*i*3);
+        $.fillRect(0,0,10,10);
+        $.font = 15+"px Open Sans"; 
+        $.fillStyle = "black";
+        $.fillText(list[i].name,2*10,10)
+        $.restore();
+      };
+    }
+  }
+  function oncreatedom(vnode){
+    model.dom = vnode.dom;
+    ctrl.render(vnode)
+  }
+  function view(vnode){
+    model.dom?ctrl.render(vnode):void 0;
+    return m("canvas", {
+      width: vnode.attrs.width,
+      height: vnode.attrs.height
+    })
+  }
+  return {view: view, oncreate: oncreatedom};
+})
+
+m.route(document.body, "/app" ,{
+  "/app": App
+});
+  </script>
+
+</body>
+</html>
